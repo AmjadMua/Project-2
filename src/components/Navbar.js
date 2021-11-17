@@ -6,20 +6,25 @@ function NavbarItem() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">
-          <img src={NewsLogo} width="110" height="60" className="d-inline-block align-top" alt="React Bootstrap logo" />
+        <Navbar.Brand>
+          <img src={NewsLogo} width="100" height="50" className="d-inline-block align-top" alt="React Bootstrap logo" />
         </Navbar.Brand>
-        <Navbar.Brand> News Journal</Navbar.Brand>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/">Features</Link>
-            <Link to="/">Pricing</Link>
+            <Link className="nav-link" to="/">
+              World
+            </Link>
+            <Link className="nav-link" to="/local-news">
+              Local News
+            </Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
+            <Link to="/sign" className="nav-link">
+              Sign as journalist
+            </Link>
+            <Link to="/login" className="nav-link">
+              Login
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
