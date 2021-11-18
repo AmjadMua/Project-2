@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Route, Routes } from "react-router-dom"
 import Navbar from "./components/Navbar"
+import OneCard from "./pages/OneCard"
 import World from "./pages/World"
 import NewsContext from "./utlis/Newsontext"
 function App() {
@@ -21,6 +22,7 @@ function App() {
   useEffect(() => {
     getNews()
   }, [])
+
   const store = {
     news: news,
   }
@@ -29,6 +31,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<World />} />
+        <Route path="/news/:newId" element={<OneCard />} />
       </Routes>
     </NewsContext.Provider>
   )

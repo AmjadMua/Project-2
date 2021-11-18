@@ -1,4 +1,5 @@
-import { Card, Button, Col, Row } from "react-bootstrap"
+import { Card, Col, Row } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import { IconContext } from "react-icons"
 import { FcBookmark } from "react-icons/fc"
 function NewsCard(props) {
@@ -21,9 +22,9 @@ function NewsCard(props) {
             <Card.Body>
               <Card.Title>{newItem.title}</Card.Title>
               <Card.Text>{newItem.description}</Card.Text>
-              <Button id={NewId} variant="primary">
-                More..
-              </Button>
+              <Link className="btn btn-primary" to={`/news/${NewId}`}>
+                Read more..
+              </Link>
             </Card.Body>
           </Col>
           <Col>
