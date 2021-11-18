@@ -3,6 +3,7 @@ import { IconContext } from "react-icons"
 import { FcBookmark } from "react-icons/fc"
 function NewsCard(props) {
   const { newItem } = props
+  console.log(newItem.title)
 
   const url = newItem.publishedAt
   const getId = url.split("-")[2].split(":")[0]
@@ -20,7 +21,9 @@ function NewsCard(props) {
             <Card.Body>
               <Card.Title>{newItem.title}</Card.Title>
               <Card.Text>{newItem.description}</Card.Text>
-              <Button variant="primary">More..</Button>
+              <Button id={NewId} variant="primary">
+                More..
+              </Button>
             </Card.Body>
           </Col>
           <Col>
