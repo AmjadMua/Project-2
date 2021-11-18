@@ -3,6 +3,12 @@ import { IconContext } from "react-icons"
 import { FcBookmark } from "react-icons/fc"
 function NewsCard(props) {
   const { newItem } = props
+
+  const url = newItem.publishedAt
+  const getId = url.split("-")[2].split(":")[0]
+  const NewId = getId
+  console.log(NewId)
+
   return (
     <div className="d-flex justify-content-center mt-4">
       <Card style={{ width: "60rem" }}>
@@ -14,7 +20,7 @@ function NewsCard(props) {
             <Card.Body>
               <Card.Title>{newItem.title}</Card.Title>
               <Card.Text>{newItem.description}</Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">More..</Button>
             </Card.Body>
           </Col>
           <Col>
