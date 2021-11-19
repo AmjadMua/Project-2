@@ -17,15 +17,32 @@ function NavbarItem() {
             <Link className="nav-link" to="/local-news">
               Local News
             </Link>
+            {localStorage.tokenPost ? (
+              <Nav className="me-auto">
+                <Link className="nav-link" to="/add-Artical">
+                  Add Artical
+                </Link>
+              </Nav>
+            ) : null}
           </Nav>
-          <Nav>
-            <Link to="/sign" className="nav-link">
-              Sign as journalist
-            </Link>
-            <Link to="/login" className="nav-link">
-              Login
-            </Link>
-          </Nav>
+
+          {localStorage.tokenPost ? (
+            <Nav className="ms-auto">
+              <div className="nav-link">Logout</div>
+              <Link className="nav-link" to="/profile">
+                Profile
+              </Link>
+            </Nav>
+          ) : (
+            <Nav>
+              <Link to="/sign" className="nav-link">
+                Sign as journalist
+              </Link>
+              <Link to="/login" className="nav-link">
+                Login
+              </Link>
+            </Nav>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
