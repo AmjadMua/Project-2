@@ -4,16 +4,11 @@ import { IconContext } from "react-icons"
 import { FcBookmark } from "react-icons/fc"
 function NewsCard(props) {
   const { newItem } = props
-  console.log(newItem.title)
-
-  const url = newItem.publishedAt
-  const getId = url.split("-")[2].split(":")[0]
-  const NewId = getId
-  console.log(NewId)
+  const newId = newItem.publishedAt
 
   return (
     <div className="d-flex justify-content-center mt-4">
-      <Card style={{ width: "60rem" }}>
+      <Card style={{ width: "70rem" }}>
         <Row>
           <Col md={4}>
             <Card.Img variant="top" src={newItem.urlToImage} />
@@ -22,7 +17,7 @@ function NewsCard(props) {
             <Card.Body>
               <Card.Title>{newItem.title}</Card.Title>
               <Card.Text>{newItem.description}</Card.Text>
-              <Link className="btn btn-primary" to={`/news/${NewId}`}>
+              <Link className="btn btn-primary" to={`/news/${newId}`}>
                 Read more..
               </Link>
             </Card.Body>

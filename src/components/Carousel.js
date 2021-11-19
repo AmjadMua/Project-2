@@ -6,9 +6,7 @@ import header from "../images/header.png"
 function CarouselItem() {
   return (
     <>
-      <div className="d-flex justify-content-center">
-        <img src={header} width="800px" />
-      </div>
+      <div className="d-flex justify-content-center"></div>
       <Row>
         <Col className="mx-auto" sm={12} md={9}>
           <Carousel variant="light" className="d-block mx-auto mt-5">
