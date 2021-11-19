@@ -35,7 +35,7 @@ function NavbarItem() {
             </Nav>
           ) : (
             <Nav>
-              <Link to="/sign" className="nav-link">
+              <Link to="/signup" className="nav-link">
                 Sign as journalist
               </Link>
               <Link to="/login" className="nav-link">
