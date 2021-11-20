@@ -3,8 +3,11 @@ import { Link } from "react-router-dom"
 import NewsLogo from "../images/NewsLogo.png"
 import { IconContext } from "react-icons"
 import { BsPencilSquare } from "react-icons/bs"
+import { useContext } from "react"
+import NewsContext from "../utlis/Newsontext"
 
 function NavbarItem() {
+  const { logout } = useContext(NewsContext)
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -33,7 +36,9 @@ function NavbarItem() {
 
           {localStorage.userToken ? (
             <Nav className="ms-auto">
-              <div className="nav-link">Logout</div>
+              <div className="nav-link" onClick={logout}>
+                Logout
+              </div>
               <Link className="nav-link" to="/profile">
                 Profile
               </Link>

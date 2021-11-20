@@ -72,12 +72,17 @@ function App() {
       console.log(error?.response?.data)
     }
   }
+  const logout = () => {
+    localStorage.removeItem("userToken")
+    navigate("/")
+  }
 
   const store = {
     worldNews: worldNews,
     localNews: localNews,
     signup: signup,
     login: login,
+    logout: logout,
   }
   return (
     <NewsContext.Provider value={store}>
