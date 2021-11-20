@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Route, Routes, useNavigate } from "react-router-dom"
 import Navbar from "./components/Navbar"
+import AddArticle from "./pages/AddArticle"
 import LocalNews from "./pages/LocalNews"
 import OneCard from "./pages/OneCard"
 import SignUp from "./pages/SignUp"
@@ -54,10 +55,31 @@ function App() {
       console.log(error.response.data)
     }
   }
+  const addArticle = async e => {
+    e.preventDefault()
+
+    try {
+      const form = e.target
+      const newsBody = {
+        title: form.element.title.valu,
+        description: form.element.description.valu,
+        image: form.element.image.valu,
+      }
+      await axios.post("https://vast-chamber-06347.herokuapp.com/api/v2/testProject/items", newsBody, {
+        headers: {
+          Authorization: localStorage.tokenPost,
+        },
+      })
+      navigate("/")
+    } catch (error) {
+      console.log(error.response.data)
+    }
+  }
   const store = {
     worldNews: worldNews,
     localNews: localNews,
     signUp: signUp,
+    addArticle: addArticle,
   }
   return (
     <NewsContext.Provider value={store}>
@@ -67,6 +89,7 @@ function App() {
         <Route path="news/:newId" element={<OneCard />} />
         <Route path="/local-news" element={<LocalNews />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/add-artical" element={<AddArticle />} />
       </Routes>
     </NewsContext.Provider>
   )
