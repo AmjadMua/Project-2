@@ -1,6 +1,8 @@
 import { Navbar, Container, Nav } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import NewsLogo from "../images/NewsLogo.png"
+import { IconContext } from "react-icons"
+import { BsPencilSquare } from "react-icons/bs"
 
 function NavbarItem() {
   return (
@@ -17,16 +19,19 @@ function NavbarItem() {
             <Link className="nav-link" to="/local-news">
               Local News
             </Link>
-            {localStorage.tokenPost ? (
+            {localStorage.userToken ? (
               <Nav className="me-auto">
                 <Link className="nav-link" to="/add-Artical">
                   Add Artical
+                  <IconContext.Provider value={{ size: "1.5em" }}>
+                    <BsPencilSquare />
+                  </IconContext.Provider>
                 </Link>
               </Nav>
             ) : null}
           </Nav>
 
-          {localStorage.tokenPost ? (
+          {localStorage.userToken ? (
             <Nav className="ms-auto">
               <div className="nav-link">Logout</div>
               <Link className="nav-link" to="/profile">

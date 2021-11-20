@@ -1,58 +1,37 @@
-import { Form, Col, Row, Button } from "react-bootstrap"
+import { useContext } from "react"
+import { Form, Button } from "react-bootstrap"
+import NewsContext from "../utlis/Newsontext"
 
-function SignUp(props) {
-  const { signUp } = props
+function SignUp() {
+  const { signup } = useContext(NewsContext)
   return (
     <div>
       <h1>Sign Up</h1>
-      <Form onSubmit={signUp}>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
-          <Form.Label column sm={2}>
-            FirstName
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control type="text" placeholder=" enter your first name" name="firstName" required />
-          </Col>
+      <Form onSubmit={signup}>
+        <Form.Group className="mb-3">
+          <Form.Label>First Name</Form.Label>
+          <Form.Control required type="text" name="firstName" placeholder="Enter your First Name" />
         </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
-          <Form.Label column sm={2}>
-            LastName
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control type="text" placeholder="Enter yor last name" name="lastName" required />
-          </Col>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control required type="text" name="lastName" placeholder="Enter your last name " />
         </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
-          <Form.Label column sm={2}>
-            Email
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control type="email" placeholder="Email" name="email" required />
-          </Col>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control required type="email" name="email" placeholder="Enter email" />
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
-          <Form.Label column sm={2}>
-            Password
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control type="password" placeholder="Enter your password" name="password" required />
-          </Col>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control required type="password" name="password" placeholder="Password" />
         </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
-          <Form.Label column sm={2}>
-            Image
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control type="url" placeholder="" name="photo" required />
-          </Col>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Photo</Form.Label>
+          <Form.Control required type="url" name="photo" placeholder="Photo" />
         </Form.Group>
-
-        <Form.Group as={Row} className="my-4">
-          <Col md={{ span: 10, offset: 2 }}>
-            <Button type="submit">Sign Up</Button>
-          </Col>
-        </Form.Group>
+        <Button variant="primary" required type="submit">
+          Sign
+        </Button>
       </Form>
     </div>
   )
