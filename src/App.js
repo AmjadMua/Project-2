@@ -4,6 +4,7 @@ import { Route, Routes, useNavigate } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import AddArticle from "./pages/AddArticle"
 import LocalNews from "./pages/LocalNews"
+import Login from "./pages/Login"
 import OneCard from "./pages/OneCard"
 import SignUp from "./pages/SignUp"
 import World from "./pages/World"
@@ -31,23 +32,23 @@ function App() {
   }, [])
   const getLocalNews = async () => {
     try {
-      const response = await axios.get("https://vast-chamber-06347.herokuapp.com/api/v2/testProject/items")
+      const response = await axios.get("https://vast-chamber-06347.herokuapp.com/api/v2/news-553/items")
       setLocalNews(response.data)
     } catch (error) {
       console.log(error?.response?.data)
     }
   }
-  const signUp = async e => {
-    e.preventDefault()
 
+  const signup = async e => {
+    e.preventDefault()
     try {
       const form = e.target
       const userBody = {
-        firstName: form.element.firstName.valu,
-        lastName: form.element.lastName.valu,
-        email: form.element.email.valu,
-        password: form.element.password.valu,
-        image: form.element.image.valu,
+        firstName: form.elements.firstName.value,
+        lastName: form.elements.lastName.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+        photo: form.elements.photo.value,
       }
       await axios.post("https://vast-chamber-06347.herokuapp.com/api/user", userBody)
       navigate("/login")
@@ -65,21 +66,46 @@ function App() {
         description: form.element.description.valu,
         image: form.element.image.valu,
       }
-      await axios.post("https://vast-chamber-06347.herokuapp.com/api/v2/testProject/items", newsBody, {
+      await axios.post("https://vast-chamber-06347.herokuapp.com/api/v2/news-553/items", newsBody, {
         headers: {
           Authorization: localStorage.tokenPost,
         },
       })
-      navigate("/")
+      getLocalNews()
+      navigate("/local-news")
     } catch (error) {
       console.log(error.response.data)
     }
   }
+
+  const login = async e => {
+    e.preventDefault()
+    try {
+      const form = e.target
+      const userBody = {
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      }
+      const response = await axios.post("https://vast-chamber-06347.herokuapp.com/api/user/auth", userBody)
+      const userToken = response.data
+      localStorage.userToken = userToken
+      navigate("/")
+    } catch (error) {
+      console.log(error?.response?.data)
+    }
+  }
+  const logout = () => {
+    localStorage.removeItem("userToken")
+    navigate("/")
+  }
+
   const store = {
     worldNews: worldNews,
     localNews: localNews,
-    signUp: signUp,
-    addArticle: addArticle,
+    signup: signup,
+    login: login,
+    logout: logout,
+    addArticle:addArticle,
   }
   return (
     <NewsContext.Provider value={store}>
@@ -90,6 +116,7 @@ function App() {
         <Route path="/local-news" element={<LocalNews />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/add-artical" element={<AddArticle />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </NewsContext.Provider>
   )

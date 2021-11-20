@@ -7,7 +7,7 @@ function AddArticle() {
   return (
     <div onSubmit={addArticle}>
       <h1>Add Article</h1>
-      <Form onSubmit={signUp}>
+      <Form onSubmit={addArticle}>
         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
           <Form.Label column sm={2}>
             Title
