@@ -168,6 +168,21 @@ function App() {
       console.log(error?.response?.data)
     }
   }
+  const addToBookmark = async e => {
+    e.preventDefault()
+    try {
+      const bookmarkItem = e.target
+      const bookMarkId = bookmarkItem._id
+      console.log(bookMarkId);
+      await axios.post(`https://vast-chamber-06347.herokuapp.com/api/v2/testProject/favourite`, bookMarkId, {
+        headers: {
+          Authorization: localStorage.userToken,
+        },
+      })
+    } catch (error) {
+      console.log(error?.response?.data)
+    }
+  }
   const store = {
     worldNews: worldNews,
     localNews: localNews,
@@ -178,6 +193,7 @@ function App() {
     addArticle: addArticle,
     confirmArticale: confirmArticale,
     deleteArtical: deleteArtical,
+    addToBookmark: addToBookmark,
   }
   return (
     <NewsContext.Provider value={store}>

@@ -2,9 +2,12 @@ import { Card, Col, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { IconContext } from "react-icons"
 import { FcBookmark } from "react-icons/fc"
+import { useContext } from "react"
+import NewsContext from "../utlis/Newsontext"
 function NewsCard(props) {
   const { newItem } = props
   const newId = newItem.publishedAt
+  const { addToBookmark } = useContext(NewsContext)
 
   return (
     <div className="d-flex justify-content-center mt-4">
@@ -25,7 +28,7 @@ function NewsCard(props) {
           <Col>
             <IconContext.Provider value={{ size: "2.5em" }}>
               <div>
-                <a href="">
+                <a href="/profile" onClick={addToBookmark}>
                   <FcBookmark />
                 </a>
               </div>

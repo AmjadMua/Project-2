@@ -18,7 +18,7 @@ function Profile() {
     <div>
       <Row className="userInfo">
         <Row xs={6} md={4}>
-          <Image src={profile.photo} roundedCircle style={{ marginLeft: "37%", marginTop: "3%", marginBottom: "1%" }} />
+          <Image src={profile.photo} roundedCircle style={{ height: "270px" , marginLeft: "37%", marginTop: "3%", marginBottom: "1%" }} />
         </Row>
         <Row>
           <h4>
