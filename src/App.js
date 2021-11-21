@@ -62,19 +62,20 @@ function App() {
     try {
       const form = e.target
       const newsBody = {
-        title: form.element.title.valu,
-        description: form.element.description.valu,
-        image: form.element.image.valu,
+        title: form.elements.title.value,
+        description: form.elements.description.value,
+        image: form.elements.image.value,
       }
+
       await axios.post("https://vast-chamber-06347.herokuapp.com/api/v2/news-553/items", newsBody, {
         headers: {
-          Authorization: localStorage.tokenPost,
+          Authorization: localStorage.userToken,
         },
       })
       getLocalNews()
       navigate("/local-news")
     } catch (error) {
-      console.log(error.response.data)
+      console.log(error?.response?.data)
     }
   }
 
@@ -105,7 +106,7 @@ function App() {
     signup: signup,
     login: login,
     logout: logout,
-    addArticle:addArticle,
+    addArticle: addArticle,
   }
   return (
     <NewsContext.Provider value={store}>

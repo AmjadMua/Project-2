@@ -5,7 +5,7 @@ import NewsContext from "../utlis/Newsontext"
 function AddArticle() {
   const { addArticle } = useContext(NewsContext)
   return (
-    <div onSubmit={addArticle}>
+    <div>
       <h1>Add Article</h1>
       <Form onSubmit={addArticle}>
         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
@@ -30,7 +30,7 @@ function AddArticle() {
             Image
           </Form.Label>
           <Col sm={10}>
-            <Form.Control type="url" placeholder="" name="photo" required />
+            <Form.Control type="url" placeholder="" name="image" required />
           </Col>
         </Form.Group>
 
