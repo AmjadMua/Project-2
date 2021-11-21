@@ -6,15 +6,27 @@ import AddArticle from "./pages/AddArticle"
 import LocalNews from "./pages/LocalNews"
 import Login from "./pages/Login"
 import OneCard from "./pages/OneCard"
+import Profile from "./pages/Profile"
 import SignUp from "./pages/SignUp"
 import World from "./pages/World"
 import NewsContext from "./utlis/Newsontext"
+import "./App.css"
 
 function App() {
   const [worldNews, setWorldNews] = useState([])
   const [localNews, setLocalNews] = useState([])
+  const [profile, setprofile] = useState(null)
   const navigate = useNavigate()
 
+  useEffect(() => {
+    getWorldNews()
+    getLocalNews()
+    if (localStorage.userToken) {
+      getProfile()
+    }
+  }, [])
+
+  // get world news
   const getWorldNews = async () => {
     try {
       const response = await axios.get(
@@ -26,10 +38,7 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    getWorldNews()
-    getLocalNews()
-  }, [])
+  // get Locak news
   const getLocalNews = async () => {
     try {
       const response = await axios.get("https://vast-chamber-06347.herokuapp.com/api/v2/news-553/items")
@@ -39,6 +48,7 @@ function App() {
     }
   }
 
+  // Sign up
   const signup = async e => {
     e.preventDefault()
     try {
@@ -56,6 +66,32 @@ function App() {
       console.log(error.response.data)
     }
   }
+
+  // Login
+  const login = async e => {
+    e.preventDefault()
+    try {
+      const form = e.target
+      const userBody = {
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      }
+      const response = await axios.post("https://vast-chamber-06347.herokuapp.com/api/user/auth", userBody)
+      const userToken = response.data
+      localStorage.userToken = userToken
+      navigate("/")
+    } catch (error) {
+      console.log(error?.response?.data)
+    }
+  }
+
+  // Log out
+  const logout = () => {
+    localStorage.removeItem("userToken")
+    navigate("/")
+  }
+
+  //  Add Articale
   const addArticle = async e => {
     e.preventDefault()
 
@@ -79,34 +115,69 @@ function App() {
     }
   }
 
-  const login = async e => {
+  //get profile
+  const getProfile = async () => {
+    try {
+      const response = await axios.get("https://vast-chamber-06347.herokuapp.com/api/user/me", {
+        headers: {
+          Authorization: localStorage.userToken,
+        },
+      })
+      getLocalNews()
+      setprofile(response.data)
+    } catch (error) {
+      console.log(error.response.data)
+    }
+  }
+
+  // confirm artical edit
+  const confirmArticale = async (e, newsId) => {
     e.preventDefault()
+
     try {
       const form = e.target
-      const userBody = {
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+      const newsBody = {
+        title: form.elements.title.value,
+        description: form.elements.description.value,
+        image: form.elements.image.value,
       }
-      const response = await axios.post("https://vast-chamber-06347.herokuapp.com/api/user/auth", userBody)
-      const userToken = response.data
-      localStorage.userToken = userToken
-      navigate("/")
+
+      await axios.put(`https://vast-chamber-06347.herokuapp.com/api/v2/news-553/items/${newsId}`, newsBody, {
+        headers: {
+          Authorization: localStorage.userToken,
+        },
+      })
+      getLocalNews()
+      getProfile()
     } catch (error) {
       console.log(error?.response?.data)
     }
   }
-  const logout = () => {
-    localStorage.removeItem("userToken")
-    navigate("/")
-  }
 
+  // delete artical
+  const deleteArtical = async newsId => {
+    try {
+      await axios.delete(`https://vast-chamber-06347.herokuapp.com/api/v2/news-553/items/${newsId}`, {
+        headers: {
+          Authorization: localStorage.userToken,
+        },
+      })
+      getLocalNews()
+      getProfile()
+    } catch (error) {
+      console.log(error?.response?.data)
+    }
+  }
   const store = {
     worldNews: worldNews,
     localNews: localNews,
+    profile: profile,
     signup: signup,
     login: login,
     logout: logout,
     addArticle: addArticle,
+    confirmArticale: confirmArticale,
+    deleteArtical: deleteArtical,
   }
   return (
     <NewsContext.Provider value={store}>
@@ -118,6 +189,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/add-artical" element={<AddArticle />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </NewsContext.Provider>
   )

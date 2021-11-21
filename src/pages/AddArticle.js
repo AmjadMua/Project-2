@@ -1,12 +1,13 @@
 import { useContext } from "react"
 import { Form, Col, Row, Button } from "react-bootstrap"
 import NewsContext from "../utlis/Newsontext"
+import styles from "../styles.module.css"
 
 function AddArticle() {
   const { addArticle } = useContext(NewsContext)
   return (
     <div>
-      <h1>Add Article</h1>
+      <h1 className={styles.title}>Add Article</h1>
       <Form onSubmit={addArticle}>
         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
           <Form.Label column sm={2}>

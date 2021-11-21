@@ -1,10 +1,7 @@
 import { useContext, useRef } from "react"
 import { Row, Button } from "react-bootstrap"
-import Carousel from "../components/Carousel"
 import NewsCard from "../components/NewsCard"
 import NewsContext from "../utlis/Newsontext"
-import background from "../images/background.jpg"
-import styles from "../App.css"
 
 function World() {
   const { worldNews } = useContext(NewsContext)
@@ -14,7 +11,7 @@ function World() {
 
   return (
     <>
-      <section className={styles.HomeSection}>
+      <section className="WorldHeader">
         <h1>News Journal</h1>
         <h4>Explore the world !</h4>
         <div>
@@ -27,7 +24,7 @@ function World() {
           </Button>
         </div>
       </section>
-      <Carousel />
+      <h1>World News:</h1>
       <Row ref={worldNewsSection}>
         {worldNews.map(newItem => (
           <NewsCard newItem={newItem} />
