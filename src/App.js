@@ -16,6 +16,7 @@ function App() {
   const [worldNews, setWorldNews] = useState([])
   const [localNews, setLocalNews] = useState([])
   const [profile, setprofile] = useState(null)
+  const [bookmarks, setBookmarks] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -126,7 +127,7 @@ function App() {
       getLocalNews()
       setprofile(response.data)
     } catch (error) {
-      console.log(error.response.data)
+      console.log(error?.response?.data)
     }
   }
 
@@ -168,12 +169,14 @@ function App() {
       console.log(error?.response?.data)
     }
   }
-  const addToBookmark = async e => {
-    e.preventDefault()
+
+  // add bookmark
+  const addToBookmark = async newId => {
     try {
-      const bookmarkItem = e.target
-      const bookMarkId = bookmarkItem._id
-      console.log(bookMarkId);
+      const bookMarkId = {
+        url: newId,
+      }
+      console.log(bookMarkId)
       await axios.post(`https://vast-chamber-06347.herokuapp.com/api/v2/testProject/favourite`, bookMarkId, {
         headers: {
           Authorization: localStorage.userToken,
@@ -183,10 +186,26 @@ function App() {
       console.log(error?.response?.data)
     }
   }
+
+  // get bookmarks on profile page
+  const getBookmarks = async () => {
+    try {
+      const response = await axios.get("https://vast-chamber-06347.herokuapp.com/api/v2/testProject/favourite", {
+        headers: {
+          Authorization: localStorage.userToken,
+        },
+      })
+      console.log(response)
+    } catch (error) {
+      console.log(error?.response?.data)
+    }
+  }
+
   const store = {
     worldNews: worldNews,
     localNews: localNews,
     profile: profile,
+    bookmarks: bookmarks,
     signup: signup,
     login: login,
     logout: logout,
@@ -194,6 +213,7 @@ function App() {
     confirmArticale: confirmArticale,
     deleteArtical: deleteArtical,
     addToBookmark: addToBookmark,
+    getBookmarks: getBookmarks,
   }
   return (
     <NewsContext.Provider value={store}>

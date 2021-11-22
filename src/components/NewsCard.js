@@ -28,9 +28,9 @@ function NewsCard(props) {
           <Col>
             <IconContext.Provider value={{ size: "2.5em" }}>
               <div>
-                <a href="/profile" onClick={addToBookmark}>
+                <Link to="/" onClick={() => addToBookmark(newId)}>
                   <FcBookmark />
-                </a>
+                </Link>
               </div>
             </IconContext.Provider>
           </Col>

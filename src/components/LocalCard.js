@@ -26,7 +26,6 @@ function LocalCard(props) {
             <Col md={7}>
               <Card.Body>
                 <Card.Title>{localItem.title}</Card.Title>
-                <Card.Text>{localItem.description}</Card.Text>
                 {inProfile ? (
                   <>
                     <Button className="me-2" variant="success" onClick={handlOpen}>
@@ -37,7 +36,9 @@ function LocalCard(props) {
                       Delete{" "}
                     </Button>
                   </>
-                ) : null}
+                ) : (
+                  <Card.Text>{localItem.description}</Card.Text>
+                )}
               </Card.Body>
             </Col>
           </Row>
