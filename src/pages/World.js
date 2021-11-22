@@ -24,12 +24,15 @@ function World() {
           </Button>
         </div>
       </section>
+      <section className="worldBody">
       <h1>World News:</h1>
-      <Row ref={worldNewsSection}>
+      <Row ref={worldNewsSection} md={3}>
         {worldNews.map(newItem => (
           <NewsCard newItem={newItem} />
         ))}
       </Row>
+
+      </section>
     </>
   )
 }

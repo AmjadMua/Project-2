@@ -15,8 +15,13 @@ function Profile() {
   const userArticals = localNews.filter(item => item._user._id === profile._id)
   console.log(userArticals)
 
-  // const bookmarkid = bookmarks.filter(bookmark => bookmark.url)
-  // const publicNewsid = worldNews.filter(onenew => onenew.publishedAt)
+  const bookmarkUrls = profile.favourite.map(bookmark => bookmark.url)
+  const bookmarkId = profile.favourite.map(bookmark => bookmark._id)
+  console.log("bookmark id" , bookmarkId);
+
+  
+  const publicNews = worldNews.filter(onenew => bookmarkUrls.includes(onenew.publishedAt))
+  console.log(publicNews);
   return (
     <div>
       <Row className="userInfo">
@@ -53,8 +58,8 @@ function Profile() {
           <Card className={styles.profileCards}>
             <p className={styles.headlines}>Book Marked news:</p>
             <Row md={1} className="m-3">
-              {bookmarks.map(bookmark => (
-                <BookmarkCard bookmark={bookmark} />
+              {publicNews.map(bookmark => (
+                <BookmarkCard bookmark={bookmark} bookmarkId={bookmarkId} />
               ))}
             </Row>
           </Card>
