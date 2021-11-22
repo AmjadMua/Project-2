@@ -13,7 +13,6 @@ function NewsCard(props) {
     <div className="d-flex justify-content-center mt-4">
       <Card className="Card">
         <Row>
-            <IconContext.Provider value={{ size: "2.5em" }}>
           <Card.Img variant="top" src={newItem.urlToImage} style={{ height: "200px", borderRradius: "15px" }} />
         </Row>
         <Card.Body>
