@@ -30,7 +30,8 @@
     padding: 17px;
     text-align: center;
     margin: 10px;
-    background-color: rgba(211, 211, 211, 0.452);
+    background-color: rgb(75, 75, 75);
+    color: white;
 }
 
 .worldBody h1 {
@@ -112,4 +113,43 @@
 
 .headerimg {
     margin-left: 28%;
+}
+
+/* add artical */
+.addpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+    border: 2px solid rgba(82, 0, 0, 0.432);
+    width: 45.8%;
+    margin-left: 27%;
+    border-radius: 20px;
+}
+
+.addpage h1 {
+    color: rgb(39, 0, 0);
+    font-size: 2em;
+    margin-top: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.addpageForm {
+    width: 500px;
+    margin: 30px;
+}
+
+.addpageImage img {
+    border-radius: 20px;
+    margin-top: 1px;
+}
+
+.addpageForm button {
+    background-color: rgb(187, 0, 0);
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    color: white;
 }

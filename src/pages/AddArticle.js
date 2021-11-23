@@ -1,45 +1,42 @@
 import { useContext } from "react"
 import { Form, Col, Row, Button } from "react-bootstrap"
 import NewsContext from "../utlis/Newsontext"
+import addImage from "../images/addNewsimg.jpg"
 
 function AddArticle() {
   const { addArticle } = useContext(NewsContext)
   return (
-    <div>
-      <h1>Add Article</h1>
-      <Form onSubmit={addArticle}>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
-          <Form.Label column sm={2}>
-            Title
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control type="title" name="title" required />
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
-          <Form.Label column sm={2}>
-            Description
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control type="textarea" name="description" required />
-          </Col>
-        </Form.Group>
+    <div className="addpage">
+      <section className="addpageImage">
+        <img src={addImage} alt="" />
+      </section>
+      <section>
+        <h1>Add Article</h1>
+        <Form onSubmit={addArticle} className="addpageForm">
+          <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+            <Col>
+              <Form.Control type="title" name="title" required placeholder="title" />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+            <Col>
+              <Form.Control type="textarea" placeholder="description" name="description" required />
+            </Col>
+          </Form.Group>
 
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
-          <Form.Label column sm={2}>
-            Image
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control type="url" placeholder="" name="image" required />
-          </Col>
-        </Form.Group>
+          <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
+            <Col>
+              <Form.Control type="url" placeholder="Image" name="image" required />
+            </Col>
+          </Form.Group>
 
-        <Form.Group as={Row} className="my-4">
-          <Col md={{ span: 10, offset: 2 }}>
-            <Button type="submit">Add Article</Button>
-          </Col>
-        </Form.Group>
-      </Form>
+          <Form.Group as={Row} className="my-4">
+            <Col>
+              <button type="submit">Add Article</button>
+            </Col>
+          </Form.Group>
+        </Form>
+      </section>
     </div>
   )
 }
