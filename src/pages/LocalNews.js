@@ -10,6 +10,10 @@ function LocalNews() {
   return (
     <div className="localPage">
       <h1>Local News: </h1>
+      <p>
+        coverage of events, by the news, in a local context , try to caters to the news of our regional and local
+        communities
+      </p>
       <Carousel />
       <Row>
         {localNews.map(localItem => (

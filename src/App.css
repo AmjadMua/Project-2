@@ -166,3 +166,17 @@
      font-size: 4.5em;
      text-align: center;
  }
+
+ .localPage p {
+     margin-top: 15px;
+     color: rgb(78, 78, 78);
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     font-size: 1.5em;
+     text-align: center;
+ }
+
+ .localCard {
+     width: 100%;
+     display: flex;
+     align-items: center;
+ }
