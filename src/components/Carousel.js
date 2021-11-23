@@ -8,7 +8,7 @@ function CarouselItem() {
     <>
       <div className="d-flex justify-content-center"></div>
       <Row>
-        <Col className="mx-auto" sm={12} md={9}>
+        <Col className="mx-auto" sm={10} md={7}>
           <Carousel variant="light" className="d-block mx-auto mt-5">
             <Carousel.Item>
               <img className="d-block w-100" src={carsoul2} alt="First slide" />

@@ -1,155 +1,168 @@
-/* World page */
-.WorldHeader {
-    background: url("images/background.jpg") center center/cover no-repeat;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+ /* World page */
+ .WorldHeader {
+     background: url("images/background.jpg") center center/cover no-repeat;
+     height: 100vh;
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
 
-}
+ }
 
-.WorldHeader h1 {
-    color: rgb(173, 2, 2);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 6em;
-    margin-bottom: 50px;
+ .WorldHeader h1 {
+     color: rgb(173, 2, 2);
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-size: 6em;
+     margin-bottom: 50px;
 
-}
+ }
 
-.WorldHeader h4 {
-    background-color: rgba(255, 255, 255, 0.541);
-    padding: 5px;
-    margin-bottom: 30px;
-}
+ .WorldHeader h4 {
+     background-color: rgba(255, 255, 255, 0.541);
+     padding: 5px;
+     margin-bottom: 30px;
+ }
 
-.worldBody .Card {
-    border: 1px solid rgb(82, 0, 0);
-    border-radius: 15px;
-    padding: 17px;
-    text-align: center;
-    margin: 10px;
-    background-color: rgb(75, 75, 75);
-    color: white;
-}
+ .worldBody .Card {
+     border: 1px solid rgb(82, 0, 0);
+     border-radius: 15px;
+     padding: 10px;
+     text-align: center;
+     margin: 10px;
+     background-color: rgb(75, 75, 75);
+     color: white;
+     margin-left: 10px;
+     width: 450px;
+     margin-top: 40px;
+ }
 
-.worldBody h1 {
-    text-align: center;
-    font-size: 4em;
-    margin-top: 30px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+ .worldBody h1 {
+     text-align: center;
+     font-size: 4em;
+     margin-top: 40px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ }
 
-.userInfo {
+ .userInfo {
 
-    text-align: center;
+     text-align: center;
 
-    align-items: center;
-    justify-content: center;
-}
+     align-items: center;
+     justify-content: center;
+ }
 
-/* sign up  */
+ /* sign up  & Log in */
 
-.signupPage {
-    display: flex;
-    align-items: center;
+ .signupPage {
+     display: flex;
+     align-items: center;
 
-    margin-top: 60px;
-    margin-left: 30%;
-    margin-right: 30%;
-    background-color: rgb(187, 0, 0);
-    border: 1px solid black;
-    border-radius: 30px;
+     margin-top: 60px;
+     margin-left: 30%;
+     margin-right: 30%;
+     background-color: rgb(187, 0, 0);
+     border: 1px solid black;
+     border-radius: 30px;
 
-}
+ }
 
-.signupform {
-    width: 400px;
-    text-align: center;
-    height: 40%;
-    background-color: white;
-    padding: 15px;
-    border-radius: 30px;
+ .signupform {
+     width: 400px;
+     text-align: center;
+     height: 40%;
+     background-color: white;
+     padding: 15px;
+     border-radius: 30px;
 
-}
+ }
 
-.signupform button {
-    padding: 5px;
-    padding-left: 30px;
-    padding-right: 30px;
-    border-radius: 20px;
-    color: white;
-    background-color: rgb(187, 0, 0);
-}
+ .signupform button {
+     padding: 5px;
+     padding-left: 30px;
+     padding-right: 30px;
+     border-radius: 20px;
+     color: white;
+     background-color: rgb(187, 0, 0);
+ }
 
 
 
-.signuparea {
-    width: 400px;
-    text-align: center;
-    height: 40%;
-    color: white;
-}
+ .signuparea {
+     width: 400px;
+     text-align: center;
+     height: 40%;
+     color: white;
+ }
 
-.signuparea p {
-    margin-top: 20px;
+ .signuparea p {
+     margin-top: 20px;
 
-}
+ }
 
-.signuparea button {
-    background-color: white;
-    padding: 5px;
-    padding-left: 30px;
-    padding-right: 30px;
-    border-radius: 20px;
-    margin-top: 50px;
-}
+ .signuparea button {
+     background-color: white;
+     padding: 5px;
+     padding-left: 30px;
+     padding-right: 30px;
+     border-radius: 20px;
+     margin-top: 50px;
+ }
 
-.signuparea a {
-    text-decoration: none;
-    color: rgb(187, 0, 0);
-}
+ .signuparea a {
+     text-decoration: none;
+     color: rgb(187, 0, 0);
+ }
 
-.headerimg {
-    margin-left: 28%;
-}
+ .headerimg {
+     margin-left: 28%;
+ }
 
-/* add artical */
-.addpage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: 20px;
-    border: 2px solid rgba(82, 0, 0, 0.432);
-    width: 45.8%;
-    margin-left: 27%;
-    border-radius: 20px;
-}
+ /* add artical */
+ .addpage {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     text-align: center;
+     margin: 20px;
+     border: 2px solid rgba(82, 0, 0, 0.432);
+     width: 42%;
+     margin-left: 27%;
+     border-radius: 20px;
+ }
 
-.addpage h1 {
-    color: rgb(39, 0, 0);
-    font-size: 2em;
-    margin-top: 10px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+ .addpage h1 {
+     color: rgb(39, 0, 0);
+     font-size: 2em;
+     margin-top: 10px;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
 
-.addpageForm {
-    width: 500px;
-    margin: 30px;
-}
+ .addpageForm {
+     width: 400px;
+     margin: 30px;
+ }
 
-.addpageImage img {
-    border-radius: 20px;
-    margin-top: 1px;
-}
+ .addpageImage img {
+     border-radius: 20px;
+     margin-top: 1px;
+ }
 
-.addpageForm button {
-    background-color: rgb(187, 0, 0);
-    padding: 5px;
-    padding-left: 30px;
-    padding-right: 30px;
-    border-radius: 20px;
-    color: white;
-}
+ .addpageForm button {
+     background-color: rgb(187, 0, 0);
+     padding: 5px;
+     padding-left: 30px;
+     padding-right: 30px;
+     border-radius: 20px;
+     color: white;
+ }
+
+ /* Local news */
+
+ .localPage h1 {
+     margin-top: 40px;
+     color: rgb(173, 2, 2);
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-size: 4.5em;
+     text-align: center;
+ }

@@ -8,7 +8,7 @@ function LocalNews() {
   const { localNews } = useContext(NewsContext)
 
   return (
-    <>
+    <div className="localPage">
       <h1>Local News: </h1>
       <Carousel />
       <Row>
@@ -16,7 +16,7 @@ function LocalNews() {
           <LocalCard localItem={localItem} />
         ))}
       </Row>
-    </>
+    </div>
   )
 }
 

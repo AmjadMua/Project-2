@@ -23,7 +23,7 @@ function NewsCard(props) {
           </Link>
           <IconContext.Provider value={{ size: "1.5em" }}>
             <div>
-              <Link to="/profile" className="btn btn-light mt-2" onClick={() => addToBookmark(newId)}>
+              <Link to="/" className="btn btn-light mt-2" onClick={() => addToBookmark(newId)}>
                 Bookmark
                 <FcBookmark />
               </Link>
