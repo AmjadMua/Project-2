@@ -187,20 +187,20 @@ function App() {
     }
   }
 
-  // remove bookmark 
-  // const removeBookmark = async bookmarkId => {
-  //   try {
-  //     await axios.delete(`https://vast-chamber-06347.herokuapp.com/api/v2/testProject/favourite/${bookmarkId}` , {
-  //       headers: {
-  //         Authorization: localStorage.userToken,
-  //       },
-  //     })
-  //     getProfile()
-  //   } catch(error) {
-  //     console.log(error?.response?.data);
-  //   }
-  // }
-
+  // remove bookmark
+  const removeBookmark = async (e, bookmarkId) => {
+    e.preventDefault()
+    try {
+      await axios.delete(`https://vast-chamber-06347.herokuapp.com/api/v2/news-553/favourite/${bookmarkId}`, {
+        headers: {
+          Authorization: localStorage.userToken,
+        },
+      })
+      getProfile()
+    } catch (error) {
+      console.log(error?.response?.data)
+    }
+  }
 
   const store = {
     worldNews: worldNews,
@@ -213,7 +213,7 @@ function App() {
     confirmArticale: confirmArticale,
     deleteArtical: deleteArtical,
     addToBookmark: addToBookmark,
-    // removeBookmark,removeBookmark
+    removeBookmark: removeBookmark,
   }
   return (
     <NewsContext.Provider value={store}>

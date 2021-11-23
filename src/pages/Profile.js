@@ -5,7 +5,7 @@ import LocalCard from "../components/LocalCard"
 import BookmarkCard from "../components/BookmarkCard"
 
 function Profile() {
-  const { profile, localNews, bookmarks, worldNews } = useContext(NewsContext)
+  const { profile, localNews, worldNews } = useContext(NewsContext)
 
   if (!profile) {
     return <h1>Loading...</h1>
@@ -16,10 +16,10 @@ function Profile() {
 
   const bookmarkUrls = profile.favourite.map(bookmark => bookmark.url)
   const bookmarkId = profile.favourite.map(bookmark => bookmark._id)
-  console.log("bookmark id", bookmarkId)
+  console.log("bookmark id before map", bookmarkId)
 
   const publicNews = worldNews.filter(onenew => bookmarkUrls.includes(onenew.publishedAt))
-  console.log(publicNews)
+
   return (
     <div>
       <Row className="userInfo">
@@ -53,11 +53,11 @@ function Profile() {
         </Col>
 
         <Col className="bookMarks" md={5} className="ms-5">
-          <Card className={styles.profileCards}>
-            <p className={styles.headlines}>Book Marked news:</p>
+          <Card className="profileCards">
+            <p className="headlines">Book Marked news:</p>
             <Row md={1} className="m-3">
-              {publicNews.map(bookmark => (
-                <BookmarkCard bookmark={bookmark} bookmarkId={bookmarkId} />
+              {publicNews.map((bookmark, index) => (
+                <BookmarkCard bookmark={bookmark} bookmarkId={bookmarkId[index]} />
               ))}
             </Row>
           </Card>

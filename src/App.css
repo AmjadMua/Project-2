@@ -25,12 +25,12 @@
 }
 
 .worldBody .Card {
-    border: 1px solid rgb(78, 78, 78);
+    border: 1px solid rgb(82, 0, 0);
     border-radius: 15px;
     padding: 17px;
     text-align: center;
     margin: 10px;
-    background-color: rgba(173, 173, 173, 0.774);
+    background-color: rgba(211, 211, 211, 0.452);
 }
 
 .worldBody h1 {
@@ -46,4 +46,70 @@
 
     align-items: center;
     justify-content: center;
+}
+
+/* sign up  */
+
+.signupPage {
+    display: flex;
+    align-items: center;
+
+    margin-top: 60px;
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: rgb(187, 0, 0);
+    border: 1px solid black;
+    border-radius: 30px;
+
+}
+
+.signupform {
+    width: 400px;
+    text-align: center;
+    height: 40%;
+    background-color: white;
+    padding: 15px;
+    border-radius: 30px;
+
+}
+
+.signupform button {
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(187, 0, 0);
+}
+
+
+
+.signuparea {
+    width: 400px;
+    text-align: center;
+    height: 40%;
+    color: white;
+}
+
+.signuparea p {
+    margin-top: 20px;
+
+}
+
+.signuparea button {
+    background-color: white;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+.signuparea a {
+    text-decoration: none;
+    color: rgb(187, 0, 0);
+}
+
+.headerimg {
+    margin-left: 28%;
 }
