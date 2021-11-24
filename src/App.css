@@ -271,8 +271,53 @@
      margin: 10px;
  }
 
+ .userActivity {
+     display: flex;
+     height: 200%;
+     padding: 10px;
+     background-color: rgba(59, 59, 59, 0.842);
+ }
+
  .profilepage .profilearicals {
      display: flex;
      flex-direction: column;
-     background-color: rgb(78, 78, 78);
+     width: 800px;
+ }
+
+ .bokmarkerea {
+     display: flex;
+     justify-content: center;
+     height: 150%;
+     margin-top: 5px;
+ }
+
+ .graysbtns {
+     padding-left: 30px;
+     padding-right: 30px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     margin-top: 60px;
+
+     margin-left: 10px;
+     margin-right: 10px;
+     border-radius: 30px;
+     background-color: rgba(136, 134, 134, 0.384);
+     border: 2px solid black;
+     text-decoration: none;
+     color: black;
+ }
+
+ .redbtns {
+     color: white;
+     padding-left: 40px;
+     padding-right: 40px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     margin-top: 10px;
+     margin-bottom: 10px;
+     margin-left: 10px;
+     margin-right: 10px;
+     border-radius: 30px;
+     background-color: rgba(187, 10, 10, 0.836);
+     border: 2px solid black;
  }

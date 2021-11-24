@@ -10,8 +10,8 @@ function BookmarkCard(props) {
   console.log("bookmark id after map", favourite, "title", favourite.title)
   return (
     <>
-      <div className="d-flex justify-content-center mt-4">
-        <Card style={{ width: "70rem" }}>
+      <div className="bokmarkerea">
+        <Card style={{ width: "50rem", height: "220px", justifyContent: "center" }}>
           <Row>
             <Col md={4}>
               <Card.Img variant="top" src={favourite.urlToImage} />
@@ -19,13 +19,13 @@ function BookmarkCard(props) {
             <Col md={7}>
               <Card.Body>
                 <Card.Title>{favourite.title}</Card.Title>
-                <Link className="btn btn-primary" to={`/news/${newId}`}>
+                <Link className="graysbtns" to={`/news/${newId}`}>
                   Read Now
                 </Link>
-                <Button variant="danger" onClick={e => removeBookmark(e, favourite._id)}>
+                <button className="redbtns" onClick={e => removeBookmark(e, favourite._id)}>
                   {" "}
                   Remove{" "}
-                </Button>
+                </button>
               </Card.Body>
             </Col>
           </Row>

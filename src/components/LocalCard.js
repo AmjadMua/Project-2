@@ -1,5 +1,6 @@
 import { useContext, useState } from "react"
 import { Card, Col, Row, Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import EditModal from "../components/EditModal"
 import NewsContext from "../utlis/Newsontext"
 
@@ -17,30 +18,30 @@ function LocalCard(props) {
 
   return (
     <>
-      <div className="local">
-        <Card className="card" style={{ width: "70rem", height: "280px" }}>
+      <div className="d-flex justify-content-center mt-4">
+        <Card className="card" style={{ width: "50rem", height: "280px" }}>
           <Row>
-            <Col md={4}>
+            <Col md={2}>
               <Card.Img variant="top" src={localItem.image} style={{ marginLeft: "15px", marginTop: "15px" }} />
             </Col>
-            <Col md={7} style={{ justifyItems: "center" }}>
+            <Col md={5} style={{ justifyItems: "center" }}>
               <Card.Body>
-                <Card.Title>{localItem.title}</Card.Title>
+                <Card.Title style={{ width: "600px" }}>{localItem.title}</Card.Title>
                 <Card.Text style={{ fontSize: "15px", color: "red" }}>
                   By: {localItem._user.firstName} {localItem._user.lastName}
                 </Card.Text>
                 {inProfile ? (
                   <>
-                    <Button className="me-2" variant="success" onClick={handlOpen}>
+                    <button className="graysbtns" onClick={handlOpen}>
                       Edit
-                    </Button>
-                    <Button className="me-2" variant="danger" onClick={() => deleteArtical(localItem._id)}>
+                    </button>
+                    <button className="redbtns" onClick={() => deleteArtical(localItem._id)}>
                       {" "}
                       Delete{" "}
-                    </Button>
+                    </button>
                   </>
                 ) : (
-                  <Card.Text style={{ fontSize: "13px" }}>{localItem.description}</Card.Text>
+                  <Card.Text style={{ fontSize: "13px", width: "600px" }}>{localItem.description}</Card.Text>
                 )}
               </Card.Body>
             </Col>

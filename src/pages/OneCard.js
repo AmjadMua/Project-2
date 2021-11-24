@@ -31,10 +31,13 @@ function OneCard() {
           </Card.Body>
         </Col>
         <Row>
-          <button className="backButton">
+          <a href="/">
             {" "}
-            <a href="/"> Home</a>
-          </button>
+            <button className="backButton" href="/">
+              {" "}
+              Home
+            </button>
+          </a>
         </Row>
       </Card>
     </div>

@@ -2,8 +2,9 @@ import { useContext } from "react"
 import { Col, Row, Card, Image } from "react-bootstrap"
 import NewsContext from "../utlis/Newsontext"
 import BookmarkCard from "../components/BookmarkCard"
-import MyArticls from "../components/MyArticls"
 import LocalCard from "../components/LocalCard"
+import { IconContext } from "react-icons"
+import { BsPencilSquare } from "react-icons/bs"
 
 function Profile() {
   const { profile, localNews, worldNews } = useContext(NewsContext)
@@ -39,9 +40,14 @@ function Profile() {
       </Row>
 
       <Row className="userActivity">
-        <Col>
+        <Col style={{ height: "150%" }}>
           <Card className="profilearicals">
-            <p style={{ textAlign: "center", fontSize: "3em", color: "white" }}>My Articals</p>
+            <p style={{ textAlign: "center", fontSize: "2em", color: "black" }}>
+              My Articals
+              <IconContext.Provider value={{ size: "1em" }}>
+                <BsPencilSquare />
+              </IconContext.Provider>
+            </p>
             {userArticals.map(localItem => (
               <LocalCard localItem={localItem} inProfile={true} />
             ))}
@@ -50,7 +56,7 @@ function Profile() {
 
         <Col className="bookMarks" md={5} className="ms-5">
           <Card className="profileCards">
-            <p className="headlines">Book Marked news:</p>
+            <p style={{ textAlign: "center", fontSize: "2em", color: "black" }}>Book Marked news:</p>
             <Row md={1} className="m-3">
               {favourites.map(favourite => (
                 <BookmarkCard favourite={favourite} />
