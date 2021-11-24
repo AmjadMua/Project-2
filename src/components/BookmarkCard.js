@@ -3,26 +3,26 @@ import { Col, Row, Card, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import NewsContext from "../utlis/Newsontext"
 function BookmarkCard(props) {
-  const { bookmark, bookmarkId } = props
+  const { bookmark, favourite } = props
   const { removeBookmark } = useContext(NewsContext)
 
-  const newId = bookmark.publishedAt
-  console.log("bookmark id after map", bookmarkId)
+  const newId = favourite.publishedAt
+  console.log("bookmark id after map", favourite, "title", favourite.title)
   return (
     <>
       <div className="d-flex justify-content-center mt-4">
         <Card style={{ width: "70rem" }}>
           <Row>
             <Col md={4}>
-              <Card.Img variant="top" src={bookmark.urlToImage} />
+              <Card.Img variant="top" src={favourite.urlToImage} />
             </Col>
             <Col md={7}>
               <Card.Body>
-                <Card.Title>{bookmark.title}</Card.Title>
+                <Card.Title>{favourite.title}</Card.Title>
                 <Link className="btn btn-primary" to={`/news/${newId}`}>
                   Read Now
                 </Link>
-                <Button variant="danger" onClick={e => removeBookmark(e, bookmarkId)}>
+                <Button variant="danger" onClick={e => removeBookmark(e, favourite._id)}>
                   {" "}
                   Remove{" "}
                 </Button>

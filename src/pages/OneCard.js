@@ -1,7 +1,7 @@
 import { useContext } from "react"
 
 import NewsContext from "../utlis/Newsontext"
-import { Card, Row, Col, Button } from "react-bootstrap"
+import { Card, Row, Col } from "react-bootstrap"
 import { useParams } from "react-router"
 
 function OneCard() {
@@ -9,25 +9,33 @@ function OneCard() {
   const { worldNews } = useContext(NewsContext)
 
   const newsFound = worldNews.find(newItem => newItem.publishedAt === newId)
+  if (!newsFound) {
+    return <h5>Loading..</h5>
+  }
 
   return (
-    <div>
-      <Card className="d=flex  justify-content-center align-items-center" style={{ width: "30rem" }}>
+    <div className="oneartical">
+      <Card className="Card" style={{ width: "50rem" }}>
         <Col>
-          <img variant="top" src={newsFound.urlToImage} height="350px" width="350px" />
+          <Card.Title className="title"> {newsFound.title}</Card.Title>
+          <b style={{ color: "red", background: "rgba(241, 241, 241, 0.808)", padding: "5px" }}>
+            Jotnaist : {newsFound.author}
+          </b>
         </Col>
         <Col>
           <Card.Body>
-            <Card.Title>Title : {newsFound.title}</Card.Title>
-            <b style={{ color: "red" }}>Jotnaist : {newsFound.author}</b>
-            <Card.Text>{newsFound.description}</Card.Text>
-            <Card.Text>
-              Refrence : <a href={newsFound.url}>{newsFound.url}</a>{" "}
+            <img variant="top" src={newsFound.urlToImage} height="350px" width="350px" />
+            <Card.Text className="descriptipn">
+              {newsFound.description} <br /> <br /> Refrence : <a href={newsFound.url}>{newsFound.url}</a>
             </Card.Text>
           </Card.Body>
         </Col>
-
-        <Button href="/"> back </Button>
+        <Row>
+          <button className="backButton">
+            {" "}
+            <a href="/"> Home</a>
+          </button>
+        </Row>
       </Card>
     </div>
   )

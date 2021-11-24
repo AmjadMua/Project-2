@@ -7,8 +7,6 @@ function LocalCard(props) {
   const { localItem, inProfile } = props
   const { deleteArtical } = useContext(NewsContext)
   const [show, setShow] = useState(false)
-  console.log("local", localItem)
-
   const handlOpen = () => {
     setShow(true)
   }
@@ -16,15 +14,16 @@ function LocalCard(props) {
   const handlClose = () => {
     setShow(false)
   }
+
   return (
     <>
-      <div className="d-flex justify-content-center mt-4">
-        <Card style={{ width: "70rem", height: "250px" }}>
+      <div className="local">
+        <Card className="card" style={{ width: "70rem", height: "280px" }}>
           <Row>
             <Col md={4}>
-              <Card.Img variant="top" src={localItem.image} />
+              <Card.Img variant="top" src={localItem.image} style={{ marginLeft: "15px", marginTop: "15px" }} />
             </Col>
-            <Col md={7}>
+            <Col md={7} style={{ justifyItems: "center" }}>
               <Card.Body>
                 <Card.Title>{localItem.title}</Card.Title>
                 <Card.Text style={{ fontSize: "15px", color: "red" }}>
