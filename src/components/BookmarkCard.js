@@ -3,7 +3,7 @@ import { Col, Row, Card, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import NewsContext from "../utlis/Newsontext"
 function BookmarkCard(props) {
-  const { bookmark, favourite } = props
+  const { favourite } = props
   const { removeBookmark } = useContext(NewsContext)
 
   const newId = favourite.publishedAt

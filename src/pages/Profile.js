@@ -21,13 +21,6 @@ function Profile() {
     }
     return favourite
   })
-  console.log("fav", favourites)
-
-  // const bookmarkUrls = profile.favourite.map(bookmark => bookmark.url)
-  // const bookmarkId = profile.favourite.map(bookmark => bookmark._id)
-  // console.log("bookmark id before map", bookmarkId)
-
-  // const publicNews = worldNews.filter(onenew => bookmarkUrls.includes(onenew.publishedAt))
 
   return (
     <div className="profilepage">
@@ -40,9 +33,9 @@ function Profile() {
       </Row>
 
       <Row className="userActivity">
-        <Col style={{ height: "150%" }}>
-          <Card className="profilearicals">
-            <p style={{ textAlign: "center", fontSize: "2em", color: "black" }}>
+        <Col style={{ height: "100%" }}>
+          <Card className="profilearicals" style={{ backgroundColor: "rgba(59, 59, 59, 0.842)" }}>
+            <p style={{ textAlign: "center", fontSize: "2em", color: "white" }}>
               My Articals
               <IconContext.Provider value={{ size: "1em" }}>
                 <BsPencilSquare />
@@ -54,9 +47,9 @@ function Profile() {
           </Card>
         </Col>
 
-        <Col className="bookMarks" md={5} className="ms-5">
-          <Card className="profileCards">
-            <p style={{ textAlign: "center", fontSize: "2em", color: "black" }}>Book Marked news:</p>
+        <Col className="bookMarks" md={5}>
+          <Card className="profileCards" style={{ backgroundColor: "rgba(105, 1, 1, 0.705)" }}>
+            <p style={{ textAlign: "center", fontSize: "2em", color: "white" }}>Book Marked news:</p>
             <Row md={1} className="m-3">
               {favourites.map(favourite => (
                 <BookmarkCard favourite={favourite} />

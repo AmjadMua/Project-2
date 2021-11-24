@@ -11,6 +11,7 @@ import SignUp from "./pages/SignUp"
 import World from "./pages/World"
 import NewsContext from "./utlis/Newsontext"
 import "./App.css"
+import Footer from "./components/Footer"
 
 function App() {
   const [worldNews, setWorldNews] = useState([])
@@ -80,6 +81,7 @@ function App() {
       const userToken = response.data
       localStorage.userToken = userToken
       navigate("/")
+      getProfile()
     } catch (error) {
       console.log(error?.response?.data)
     }
@@ -227,6 +229,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      <Footer />
     </NewsContext.Provider>
   )
 }

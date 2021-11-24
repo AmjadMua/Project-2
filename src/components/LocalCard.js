@@ -19,7 +19,7 @@ function LocalCard(props) {
   return (
     <>
       <div className="d-flex justify-content-center mt-4">
-        <Card className="card" style={{ width: "50rem", height: "280px" }}>
+        <Card className="card" style={{ width: "50rem", height: "330px" }}>
           <Row>
             <Col md={2}>
               <Card.Img variant="top" src={localItem.image} style={{ marginLeft: "15px", marginTop: "15px" }} />
@@ -30,6 +30,7 @@ function LocalCard(props) {
                 <Card.Text style={{ fontSize: "15px", color: "red" }}>
                   By: {localItem._user.firstName} {localItem._user.lastName}
                 </Card.Text>
+                <Card.Text style={{ fontSize: "13px", width: "600px" }}>{localItem.description}</Card.Text>
                 {inProfile ? (
                   <>
                     <button className="graysbtns" onClick={handlOpen}>
@@ -40,9 +41,7 @@ function LocalCard(props) {
                       Delete{" "}
                     </button>
                   </>
-                ) : (
-                  <Card.Text style={{ fontSize: "13px", width: "600px" }}>{localItem.description}</Card.Text>
-                )}
+                ) : null}
               </Card.Body>
             </Col>
           </Row>
