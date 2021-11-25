@@ -21,14 +21,16 @@ function NewsCard(props) {
           <Link className="btn btn-dark" to={`/news/${newId}`}>
             Read more..
           </Link>
-          <IconContext.Provider value={{ size: "1.5em" }}>
-            <div>
-              <Link to="/" className="btn btn-light mt-2" onClick={() => addToBookmark(newId)}>
-                Bookmark
-                <FcBookmark />
-              </Link>
-            </div>
-          </IconContext.Provider>
+          {localStorage.userToken ? (
+            <IconContext.Provider value={{ size: "1.5em" }}>
+              <div>
+                <Link to="/profile" className="btn btn-light mt-2" onClick={() => addToBookmark(newId)}>
+                  Bookmark
+                  <FcBookmark />
+                </Link>
+              </div>
+            </IconContext.Provider>
+          ) : null}
         </Card.Body>
       </Card>
     </div>

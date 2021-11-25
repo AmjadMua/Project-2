@@ -259,7 +259,7 @@
  /* Profile page */
  .profilepage {
      background: url("images/onecard.jpg") center center/cover no-repeat;
-     height: 300vh;
+     height: 200vh;
  }
 
  .profilepage .userInfo {
